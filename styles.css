@@ -1,4 +1,45 @@
 #userInput {
     width: 200px;
     height: 40px;
+    font-family: 'Nerko One', cursive;
+   
+}
+
+#infoDiv {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 500px;
+    font-family: 'Nerko One', cursive;
+    font-size: 2em;
+}
+
+#infoDivLocationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
+    background-color: green;
+}
+
+#infoDivOther {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    background-color: rgb(159, 243, 208);
+}
+
+#infoDivTemperature {
+    margin: auto;
+    width: 250px;
+    background-color: rgb(255, 107, 107);
+    font-size: 3em;
+}
+
+#infoDivDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+    background-color: grey;
 }

@@ -1,6 +1,5 @@
-const searchButton = document.getElementById('searchButton')
-
-searchButton.addEventListener('click', setLocationData)
+const searchButton = document.getElementById('inputDivSearchButton')
+searchButton.addEventListener('click', renderLocationData)
 
 class Location {
     constructor(name, windSpeed, tempCelcius, humidity, realFeel, description){
@@ -13,12 +12,16 @@ class Location {
     }
 }
 
-async function getLocationData () {
-    let weatherObject = new Location()
-    let userInput = document.getElementById('userInput').value
+async function _getLocationData () {
+    let userInput = document.getElementById('inputDivUserInput').value
     let data = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=metric&APPID=41183a89436afb18722ec0e4d0552f76`)
     let weather = await data.json()
-    //console.log(weather)
+    return weather
+}
+
+async function _setLocationData () {
+    let weatherObject = new Location()
+    let weather = await _getLocationData()
         weatherObject.name = weather.name
         weatherObject.windSpeed = weather.wind.speed
         weatherObject.tempCelcius = weather.main.temp
@@ -28,7 +31,19 @@ async function getLocationData () {
     return weatherObject
 }
 
-async function setLocationData () {
-    let weatherObject = await getLocationData()
-    console.log(weatherObject)
+async function renderLocationData() {
+    let temperature = document.getElementById('infoDivTemperature')
+    let description = document.getElementById('infoDivDescription')
+    let location = document.getElementById('infoDivLocation')
+    let wind = document.getElementById('infoDivDetailsWind')
+    let humidity = document.getElementById('infoDivDetailsHumidity')
+    let realFeel = document.getElementById('infoDivDetailsRealFeel')
+    let weatherObject =  await _setLocationData()
+
+    description.textContent = weatherObject.description
+    location.textContent = weatherObject.name
+    temperature.textContent = `${weatherObject.tempCelcius} C`
+    wind.textContent = `Wind Speed: ${weatherObject.windSpeed}`
+    humidity.textContent = `Humidity: ${weatherObject.humidity}`
+    realFeel.textContent = `Feels like: ${weatherObject.realFeel}`
 }

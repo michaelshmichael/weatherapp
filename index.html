@@ -2,11 +2,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
   <link href='styles.css' rel='stylesheet'>
 </head>
 <body>
- <input type='text' id='userInput'>
- <button id='searchButton'>Search</button>
+  <div id='inputDiv'>
+    <input type='text' id='inputDivUserInput'>
+    <button id='inputDivSearchButton'>Search</button>
+  </div>
+  <div id='infoDiv'>
+    <div id='infoDivLocationContainer'>
+      <div id='infoDivDescription'>
+      </div>
+      <div id='infoDivLocation'>
+      </div>
+    </div>
+    <div id='infoDivOther'>
+      <div id='infoDivTemperature'>
+      </div>
+      <div id='infoDivDetails'>
+        <div id='infoDivDetailsWind'>
+        </div>
+        <div id='infoDivDetailsHumidity'> 
+        </div>
+        <div id='infoDivDetailsRealFeel'>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
  <script src='app.js'></script>
 </body>
 </html>
