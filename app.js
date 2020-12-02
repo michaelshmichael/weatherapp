@@ -45,5 +45,5 @@ async function renderLocationData() {
     temperature.textContent = `${weatherObject.tempCelcius} C`
     wind.textContent = `Wind Speed: ${weatherObject.windSpeed}`
     humidity.textContent = `Humidity: ${weatherObject.humidity}`
-    realFeel.textContent = `Feels like: ${weatherObject.realFeel}`
+    realFeel.textContent = `Feels like: ${weatherObject.realFeel} C`
 }

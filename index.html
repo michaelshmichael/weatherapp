@@ -2,13 +2,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Weather App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css" integrity="sha512-OD0ScwZAE5PCg4nATXnm8pdWi0Uk0Pp2XFsFz1xbZ7xcXvapzjvcxxHPeTZKfMjvlwwl4sGOvgJghWF2GRZZDw==" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
   <link href='styles.css' rel='stylesheet'>
 </head>
 <body>
+  <div id='rootContainer'>
   <div id='inputDiv'>
     <input type='text' id='inputDivUserInput'>
-    <button id='inputDivSearchButton'>Search</button>
+    <button id='inputDivSearchButton' class="ui yellow button">Search</button>
   </div>
   <div id='infoDiv'>
     <div id='infoDivLocationContainer'>
@@ -29,7 +31,7 @@
         </div>
       </div>
     </div>
-
+  </div>
   </div>
 
  <script src='app.js'></script>
