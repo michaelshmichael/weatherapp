@@ -56,10 +56,13 @@ async function renderLocationData() {
     let wind = document.getElementById('infoDivDetailsWind')
     let humidity = document.getElementById('infoDivDetailsHumidity')
     let realFeel = document.getElementById('infoDivDetailsRealFeel')
-    
-    location.style.backgroundColor = 'red'
+
+    let loaderAnimation = document.querySelector('.hidden')
+    loaderAnimation.classList.remove('hidden')
+    loaderAnimation.classList.add('lds-ellipsis')
     let weatherObject =  await _setLocationData()
-    location.style.backgroundColor = 'green'
+    loaderAnimation.classList.remove('lds-ellipsis')
+    loaderAnimation.classList.add('hidden')
 
     description.textContent = weatherObject.description
     location.textContent = `${weatherObject.name}, ${weatherObject.country}`
@@ -67,6 +70,4 @@ async function renderLocationData() {
     wind.textContent = `Wind Speed: ${weatherObject.windSpeed}`
     humidity.textContent = `Humidity: ${weatherObject.humidity}`
     realFeel.textContent = `Feels like: ${weatherObject.realFeel} C`
-    
-    
 }
